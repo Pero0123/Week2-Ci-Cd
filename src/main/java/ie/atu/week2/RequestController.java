@@ -10,4 +10,8 @@ public class RequestController {
     public  String message(){
         return "Hello There";
     }
+    @GetMapping("/greet/{name}")
+    public String greetByName(@PathVariable String name){
+        return name;
+    }
 }
