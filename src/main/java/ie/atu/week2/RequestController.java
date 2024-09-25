@@ -20,4 +20,38 @@ public class RequestController {
         return "Name: " + name + " age: "+ age;
     }
 
+    @GetMapping("/calculator")
+    public String calculator(@RequestParam float num1, float num2, String operator){
+        float total = 0;
+
+        switch(operator)
+        {
+            case "add":
+                total = num1 + num2;
+                break;
+
+            case "subtract":
+                total = num1 - num2;
+                break;
+
+            case "multiply":
+                total = num1 * num2;
+                break;
+
+            case "disvide":
+                if(num2 == 0) {
+                    return "Cannot divide by zero";
+                }
+                else{
+            total = num1 / num2;
+        }
+                break;
+
+            default:
+                return "NULL";
+        }
+
+        return "operator " + operator + " Total = " + total;
+    }
+
 }
